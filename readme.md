@@ -13,3 +13,12 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ```
+
+Sample data
+
+```sql
+INSERT INTO `posts` VALUES
+(1,'Hello','This one post','2016-11-03 20:35:38',0,1),
+(2,'Some title','Hi my dear friend','2016-11-03 20:36:13',0,1),
+(3,'Another title','My name is Vladimir Kamuz','2016-11-03 20:36:49',0,0);
+```
