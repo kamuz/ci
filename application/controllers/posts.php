@@ -2,12 +2,10 @@
 
 class Posts extends CI_Controller{
 
-    function index(){
-        $this->load->model('post');
-        $data = $this->post->get_posts();
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
-    }
+  function index(){
+    $this->load->model('post');
+    $data['posts'] = $this->post->get_posts();
+    $this->load->view('post_index', $data);
+  }
 
 }
