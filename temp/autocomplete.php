@@ -54,6 +54,7 @@ Lets you create tables manually or from database result objects, or arrays.
 * @property User_model $user User Class
 * @property Main_model $main_model Main model
 * @property Admin_model $admin Admin model
+* @property Post $post Post model
 */
 
 class CIPS{};
