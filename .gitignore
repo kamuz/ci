@@ -1,2 +1,4 @@
 user_guide/
 .idea
+*.sublime-project
+*.sublime-workspace
