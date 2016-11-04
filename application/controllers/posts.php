@@ -17,7 +17,7 @@ class Posts extends CI_Controller{
     $this->load->view('post', $data);
   }
 
-  function new_post($post_id){
+  function new($post_id){
     if($_POST){
       $data = array(
         'title' => $_POST['title'],
@@ -32,7 +32,7 @@ class Posts extends CI_Controller{
     }
   }
 
-  function edit_post($post_id){
+  function edit($post_id){
     $data['success'] = 0;
     if($_POST){
       $data_post = array(
@@ -47,7 +47,7 @@ class Posts extends CI_Controller{
     $this->load->view('edit_post', $data);
   }
 
-  function delete_post($post_id){
+  function delete($post_id){
     $this->post->delete_post($post_id);
     redirect(base_url() . '/posts');
   }
