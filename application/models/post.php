@@ -9,6 +9,7 @@ class Post extends CI_Model{
     $this->db->where(array('active >=' => 1));
     $this->db->order_by('date_added', 'desc');
     $this->db->limit($num, $start);
+    $this->db->join('users', 'users.user_id' = 'posts.user_id', 'left');
     $sql = $this->db->get();
     return $query = $sql->result_array();
   }
