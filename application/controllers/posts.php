@@ -17,7 +17,7 @@ class Posts extends CI_Controller{
     $this->load->view('post', $data);
   }
 
-  function new($post_id){
+  function add(){
     if($_POST){
       $data = array(
         'title' => $_POST['title'],
