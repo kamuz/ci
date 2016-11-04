@@ -3,7 +3,8 @@
 class Post extends CI_Model{
 
  function  get_posts($num = 20, $start = 0){
-    $sql = $this->db->get_where('posts', array('active' => 1), $num, $start);
+    $this->db->select('*')->from('posts')->order_by('date_added', 'desc');
+    $sql = $this->db->get();
     return $query = $sql->result_array();
   }
 
