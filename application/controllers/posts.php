@@ -8,4 +8,13 @@ class Posts extends CI_Controller{
     $this->load->view('post_index', $data);
   }
 
+  function insert(){
+    $data = array(
+      'title' => 'This is third post',
+      'post' => "It's awesome PHP framework for web application"
+    );
+    $this->load->model('post');
+    $this->post->insert_post($data);
+  }
+
 }
