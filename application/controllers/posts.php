@@ -32,20 +32,24 @@ class Posts extends CI_Controller{
     }
   }
 
-  function insert(){
-    $data = array(
-      'title' => 'This is third post',
-      'post' => "It's awesome PHP framework for web application"
-    );
-    $this->post->insert_post($data);
+  function edit_post($post_id){
+    $data['success'] = 0;
+    if($_POST){
+      $data_post = array(
+        'title' => $_POST['title'],
+        'post' => $_POST['post'],
+        'active' => 1
+      );
+      $this->post->update_post($post_id, $data);
+      $data['success'] = 1;
+    }
+    $data['post'] = $this->post->get_post($post_id);
+    $this->load->view('edit_post', $data);
   }
 
-  function update(){
-    $data = array(
-      'title' => 'This is five post',
-      'post' => "Something wrong and I will change it"
-    );
-    $this->post->update_post(5, $data);
+  function delete_post($post_id){
+    $this->post->delete_post($post_id);
+    redirect(base_url() . '/posts');
   }
 
 }
