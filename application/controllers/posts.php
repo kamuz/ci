@@ -17,6 +17,21 @@ class Posts extends CI_Controller{
     $this->load->view('post', $data);
   }
 
+  function new_post($post_id){
+    if($_POST){
+      $data = array(
+        'title' => $_POST['title'],
+        'post' => $_POST['post'],
+        'active' => 1,
+      );
+      $this->post->insert_post($data);
+      redirect(base_url() . 'posts/');
+    }
+    else{
+      $this->load->view('new_post');
+    }
+  }
+
   function insert(){
     $data = array(
       'title' => 'This is third post',
