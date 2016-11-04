@@ -40,7 +40,7 @@ class Posts extends CI_Controller{
         'post' => $_POST['post'],
         'active' => 1
       );
-      $this->post->update_post($post_id, $data);
+      $this->post->update_post($post_id, $data_post);
       $data['success'] = 1;
     }
     $data['post'] = $this->post->get_post($post_id);
