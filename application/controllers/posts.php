@@ -17,4 +17,13 @@ class Posts extends CI_Controller{
     $this->post->insert_post($data);
   }
 
+  function update(){
+    $data = array(
+      'title' => 'This is five post',
+      'post' => "Something wrong and I will change it"
+    );
+    $this->load->model('post');
+    $this->post->update_post(5, $data);
+  }
+
 }
