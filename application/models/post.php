@@ -2,10 +2,16 @@
 
 class Post extends CI_Model{
 
- function  get_posts($num = 20, $start = 0){
+ function get_posts($num = 20, $start = 0){
     $this->db->select('*')->from('posts')->order_by('date_added', 'desc');
     $sql = $this->db->get();
     return $query = $sql->result_array();
+  }
+
+  function get_post($post_id){
+    $this->db->select()->from('posts')->where(array('active' => 1, 'post_id' => $post_id));
+    $query = $this->db->get();
+    return $query->first_row('array');
   }
 
   function insert_post($data){
