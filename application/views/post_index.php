@@ -11,7 +11,7 @@
     <p>User Type: <?php echo $this->session->userdata('user_type') ?></p>
     <p><a href="<?php echo base_url() ?>users/logout">Logout</a></p>
   <?php else: ?>
-  <p><a href="<?php echo base_url() ?>users/login">Login</a></p>
+  <p><a href="<?php echo base_url() ?>users/login">Login</a> | <a href="<?php echo base_url() ?>users/register">Register</a></p>
   <?php endif; ?>
   <h2><a href="<?php echo base_url() . 'posts/add' ?>">Add new post</a></h2>
   <?php if(!empty($posts)): ?>

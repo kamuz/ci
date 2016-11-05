@@ -2,7 +2,13 @@
 
 class Users extends CI_Controller{
 
+  function index(){
+    $this->load->helper('form');
+    $this->load->view('register_user');
+  }
+
   function register(){
+    $data = '';
     if($_POST){
       $config = array(
         array(
@@ -34,34 +40,33 @@ class Users extends CI_Controller{
       $this->load->library('form_validation');
       $this->form_validation->set_rules($config);
       if($this->form_validation->run() == false){
-        $data['errors '] = validation_errors();
+        $data['errors'] = validation_errors();
       }
       else{
         $data = array(
           'username' => $_POST['username'],
-          'password' => ($_POST['password']),
+          'email' => $_POST['email'],
+          'password' => sha1($_POST['password']),
           'user_type' => $_POST['user_type']
         );
+        
         $this->load->model('user');
-        $user_id = $this->user->create_user($data);
-        $this->session->set_userdata('user_id', $user_id);
-        $this->session->set_userdata('user_type', $_POST['user_type']);
+        $this->user->create_user($data);
         redirect(base_url() . 'posts');
       }
     }
     $this->load->helper('form');
-    $this->load->view('register_user');
+    $this->load->view('register_user', $data);
   } 
 
   function login(){
     $data['error'] = 0;
     if($_POST){
-      $this
       $this->load->model('user');
       $username = $this->input->post('username', true);
       $password = $this->input->post('password', true);
       $user_type = $this->input->post('user_type', true);
-      $user = $this->user->login($username, $password, $user_type);
+      $user = $this->user->login($username, sha1($password), $user_type);
       if(!$user){
         $data['error'] = 1;
       }

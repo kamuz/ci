@@ -23,7 +23,6 @@ class Posts extends CI_Controller{
     $this->load->view('post', $data);
   }
 
-  
   function correct_permission($required){
     $user_type = $this->session->userdata('user_type');
     if($required == 'user'){
