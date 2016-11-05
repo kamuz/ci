@@ -79,6 +79,9 @@ class Posts extends CI_Controller{
   }
 
   function delete($post_id){
+    if(!$this->correct_permission('author')){
+      redirect(base_url() . 'users/login');
+    }
     $this->post->delete_post($post_id);
     redirect(base_url() . '/posts');
   }

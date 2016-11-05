@@ -17,9 +17,11 @@
   <?php if(!empty($posts)): ?>
     <?php foreach($posts as $row): ?>
     <h3><a href="<?php echo base_url(); ?>posts/post/<?php echo $row['post_id']; ?>"><?php echo $row['title']; ?></a></h3>
+    <?php if($this->session->userdata('user_id')): ?>
     <div>
       <a href="<?php echo base_url(); ?>posts/edit/<?php echo $row['post_id']; ?>">Edit</a> | <a href="<?php echo base_url(); ?>posts/delete/<?php echo $row['post_id']; ?>">Delete</a>
     </div>
+    <?php endif; ?>
     <p><?php echo substr(strip_tags($row['post']), 0, 10) . "..."; ?></p>
     <p><a href="<?php echo base_url(); ?>posts/post/<?php echo $row['post_id']; ?>">Read more...</a></p>
     <?php endforeach; ?>
