@@ -42,6 +42,7 @@ CREATE TABLE `users` (
 Added some users
 
 ```sql
-INSERT INTO users (email, username, password, user_type) VALUES ('v.kamuz@gmail.com', 'vladimir', '12345', 'admin');
-INSERT INTO users (email, username, password, user_type) VALUES ('a.kamuz@gmail.com', 'alex', '12345', 'user');
+INSERT INTO ci.users (email, username, password, user_type) VALUES ('v.kamuz@gmail.com', 'vladimir', '12345', 'admin');
+INSERT INTO ci.users (email, username, password, user_type) VALUES ('a.kamuz@gmail.com', 'alex', '12345', 'author');
+INSERT INTO ci.users (email, username, password, user_type) VALUES ('n.kamuz@gmail.com', 'nadejda', '12345', 'user');
 ```
