@@ -9,7 +9,7 @@ class User extends CI_Model{
   function login($username, $password, $user_type){
     $where = array(
       'username' => $username,
-      'password' => sha1($password),
+      'password' => ($password),
       'user_type' => $user_type
     );
     $this->db->select()->from('users')->where($where);

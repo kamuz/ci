@@ -1,4 +1,9 @@
 <?php
+/**
+ * @property CI_Session $session
+ * @property CI_Input $input
+ * @property User $user
+ */
 
 class Users extends CI_Controller{
 
@@ -8,7 +13,8 @@ class Users extends CI_Controller{
       $this->load->model('user');
       $username = $this->input->post('username', true);
       $password = $this->input->post('password', true);
-      $user = $this->user->login($username, $password);
+      $user_type = $this->input->post('user_type', true);
+      $user = $this->user->login($username, $password, $user_type);
       if(!$user){
         $data['error'] = 1;
       }

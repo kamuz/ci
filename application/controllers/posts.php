@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @property CI_Pagination $pagination
+ * @property Post $post
+ */
+
 class Posts extends CI_Controller{
 
   function __construct(){
