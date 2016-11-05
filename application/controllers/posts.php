@@ -7,8 +7,14 @@ class Posts extends CI_Controller{
     $this->load->model('post');
   }
 
-  function index(){
-    $data['posts'] = $this->post->get_posts();
+  function index($start = 0){
+    $data['posts'] = $this->post->get_posts(2, $start);
+    $this->load->library('pagination');
+    $config['base_url'] = base_url() . 'posts/index/';
+    $config['total_rows'] = $this->post->get_posts_count();
+    $config['per_page'] = 2;
+    $this->pagination->initialize($config);
+    $data['pages'] = $this->pagination->create_links();
     $this->load->view('post_index', $data);
   }
 
@@ -22,7 +28,7 @@ class Posts extends CI_Controller{
       $data = array(
         'title' => $_POST['title'],
         'post' => $_POST['post'],
-        'active' => 1,
+        'active' => $_POST['active']
       );
       $this->post->insert_post($data);
       redirect(base_url() . 'posts/');
@@ -38,7 +44,7 @@ class Posts extends CI_Controller{
       $data_post = array(
         'title' => $_POST['title'],
         'post' => $_POST['post'],
-        'active' => 1
+        'active' => $_POST['active']
       );
       $this->post->update_post($post_id, $data_post);
       $data['success'] = 1;

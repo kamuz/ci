@@ -16,6 +16,7 @@
     <p><?php echo substr(strip_tags($row['post']), 0, 10) . "..."; ?></p>
     <p><a href="<?php echo base_url(); ?>posts/post/<?php echo $row['post_id']; ?>">Read more...</a></p>
     <?php endforeach; ?>
+      <?php echo $pages; ?>
   <?php else: ?>
     <p>There are currently no posts on my blog!</p>
   <?php endif; ?>

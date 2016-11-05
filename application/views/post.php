@@ -10,7 +10,7 @@
   <?php else: ?>
     <h1><?php echo $post['title']; ?></h1>
     <?php echo $post['post']; ?>
-  <?php endif; ?> 
+  <?php endif; ?>
   <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </body>
 </html>
