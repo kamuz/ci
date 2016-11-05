@@ -11,7 +11,7 @@ CREATE TABLE `posts` (
   `user_id` int(4) NOT NULL,
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
 Sample data
@@ -22,3 +22,15 @@ INSERT INTO `posts` VALUES
 (2,'Some title','Hi my dear friend','2016-11-03 20:36:13',0,1),
 (3,'Another title','My name is Vladimir Kamuz','2016-11-03 20:36:49',0,0);
 ```
+
+Create table user
+
+```sql
+CREATE TABLE `users` (
+  `user_id` INT(4) NOT NULL AUTO_INCREMENT ,
+  `email` VARCHAR(255) NOT NULL ,
+  `username` VARCHAR(40) NOT NULL ,
+  `password` VARCHAR(255) NOT NULL ,
+  `user_type` ENUM('admin','author','user','') NOT NULL ,
+  PRIMARY KEY (`user_id`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
