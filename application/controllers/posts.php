@@ -23,9 +23,28 @@ class Posts extends CI_Controller{
     $this->load->view('post', $data);
   }
 
-  function add(){
+  
+  function correct_permission($required){
     $user_type = $this->session->userdata('user_type');
-    if($user_type != 'admin' && $user_type != 'author'){
+    if($required == 'user'){
+      if($user_type){
+        return true;
+      }
+    }
+    elseif($required == 'author'){
+      if($user_type == 'admin' || $user_type == 'author'){
+        return true;
+      }
+    }
+    elseif($required == 'admin'){
+      if($user_type == 'admin'){
+        return true;
+      }
+    }
+  }
+
+  function add(){
+    if(!$this->correct_permission('author')){
       redirect(base_url() . 'users/login');
     }
     if($_POST){
@@ -43,8 +62,7 @@ class Posts extends CI_Controller{
   }
 
   function edit($post_id){
-    $user_type = $this->session->userdata('user_type');
-    if($user_type != 'admin' && $user_type != 'author'){
+    if(!$this->correct_permission('author')){
       redirect(base_url() . 'users/login');
     }
     $data['success'] = 0;
