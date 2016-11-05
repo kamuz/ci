@@ -8,6 +8,7 @@
   <h1>Blog posts</h1>
   <?php if($this->session->userdata('user_id')): ?>
     <p>You are logged in!</p>
+    <p>User Type: <?php echo $this->session->userdata('user_type') ?></p>
     <p><a href="<?php echo base_url() ?>users/logout">Logout</a></p>
   <?php else: ?>
   <p><a href="<?php echo base_url() ?>users/login">Login</a></p>
