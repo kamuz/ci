@@ -1,9 +1,4 @@
 <?php
-/**
- * @property CI_Session $session
- * @property CI_Input $input
- * @property User $user
- */
 
 class Users extends CI_Controller{
 

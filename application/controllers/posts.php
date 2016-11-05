@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @property CI_Pagination $pagination
- * @property Post $post
- */
-
 class Posts extends CI_Controller{
 
   function __construct(){
@@ -29,6 +24,10 @@ class Posts extends CI_Controller{
   }
 
   function add(){
+    $user_type = $this->session->userdata('user_type');
+    if($user_type != 'admin' && $user_type != 'author'){
+      redirect(base_url() . 'users/login');
+    }
     if($_POST){
       $data = array(
         'title' => $_POST['title'],
@@ -44,6 +43,10 @@ class Posts extends CI_Controller{
   }
 
   function edit($post_id){
+    $user_type = $this->session->userdata('user_type');
+    if($user_type != 'admin' && $user_type != 'author'){
+      redirect(base_url() . 'users/login');
+    }
     $data['success'] = 0;
     if($_POST){
       $data_post = array(
