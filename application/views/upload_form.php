@@ -1,4 +1,4 @@
-<?php echo $error; ?>
+<div style="color: red"><?php echo $error; ?></div>
 
 <?php echo form_open_multipart('upload/do_upload'); ?>
 
