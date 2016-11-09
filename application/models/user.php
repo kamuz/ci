@@ -17,4 +17,10 @@ class User extends CI_Model{
     return $query->first_row('array');
   }
 
+  function get_emails(){
+    $this->db->select('email')->from('users');
+    $query = $this->db->get();
+    return $query->result_array();
+  }
+
 }
