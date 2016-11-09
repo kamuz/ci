@@ -25,9 +25,23 @@ class Upload extends CI_Controller{
     }
     else{
       $data = array('upload_data' => $this->upload->data());
+      $this->resize($data['upload_data']['full_path'], $data['upload_data']['file_name']);
       $this->load->view('upload_success', $data);
     }
 
+  }
+
+  function resize($path, $file){
+    $config['image_library'] = 'gd2';
+    $config['source_image'] = $path;
+    $config['create_thumb'] = TRUE;
+    $config['maintain_ratio'] = TRUE;
+    $config['width'] = '200';
+    $config['height'] = '200';
+    $config['new_image'] = './uploads/' . $file;
+
+    $this->load->library('image_lib', $config);
+    $this->image_lib->resize();
   }
 
 }
