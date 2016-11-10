@@ -19,7 +19,10 @@ class Posts extends CI_Controller{
   }
 
   function post($post_id){
+    $this->load->model('comment');
+    $data['comments'] = $this->comment->get_comments($post_id);
     $data['post'] = $this->post->get_post($post_id);
+    $this->load->helper('form');
     $this->load->view('post', $data);
   }
 
