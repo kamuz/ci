@@ -14,8 +14,6 @@ class Comments extends CI_Controller{
       redirect(base_url() . 'users/login');
     }
 
-    echo $this->session->userdata('captcha');
-
     if(strtolower($this->session->userdata('captcha')) == strtolower($_POST['captcha'])){
       $this->load->model('comment');  
       $data = array(
@@ -27,7 +25,7 @@ class Comments extends CI_Controller{
       redirect(base_url() . 'posts/post/' . $post_id);
     }
     else{
-      echo '<p>Your captcha code was incorrect! You typed in ' . $_POST['captcha'] . ' and the code was ' . $this->session->userdata('captcha') . '</p>';
+      echo '<p>Your captcha code was incorrect! You typed in ' . $_POST['captcha'] . ' and the code was ' . $this->session->userdata('captcha') . '</p><a href="' . base_url() . 'posts/post/' . $post_id . '">Return to the posts</a>';
     }
   }
 
