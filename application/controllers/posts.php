@@ -22,6 +22,15 @@ class Posts extends CI_Controller{
     $this->load->model('comment');
     $data['comments'] = $this->comment->get_comments($post_id);
     $data['post'] = $this->post->get_post($post_id);
+    $this->load->helper('captcha');
+    $vals = array(
+      // 'word' => 'test',
+      'img_path' => './captcha/',
+      'img_url' => base_url() . 'captcha/'
+    );
+    $cap = create_captcha($vals);
+    $this->session->set_userdata('captcha', $cap['word']);
+    $data['captcha'] = $cap['image'];
     $this->load->helper('form');
     $this->load->view('post', $data);
   }

@@ -23,6 +23,7 @@
     <?php echo form_open(base_url() . 'comments/add_comment/' . $post['post_id']); ?>
     <label for="message">Message:</label><br>
     <textarea name="comment" id="message"></textarea><br>
+    <p>Captcha code:<br><?php echo $captcha ?><br><input type="text" name="captcha"></p>
     <input type="submit" value="Add comment">
     <?php echo form_close(); ?>
   <?php endif; ?>
