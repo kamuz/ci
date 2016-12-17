@@ -56,3 +56,4 @@ INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `comment`, `date_add
 (2, 6, 18, 'It''s very cool', '2016-11-10 07:32:59'),
 (4, 6, 18, 'Test', '2016-11-10 09:51:59'),
 (6, 6, 18, 'Test message', '2016-11-10 10:01:07');
+```
