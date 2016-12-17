@@ -14,7 +14,12 @@
     <h2>Comments</h2>
     <?php if(count($comments) > 0): ?>
       <?php foreach($comments as $row): ?>
-        <p><strong><?php echo $row['username'] ?></strong> said at <?php echo date('d/m/Y H:i A', strtotime($row['date_added'])) ?><br><?php echo $row['comment'] ?></p>
+        <p><strong><?php echo $row['username'] ?></strong> said at <?php echo date('d/m/Y H:i A', strtotime($row['date_added'])) ?><br>
+        <?php
+        $str = $row['comment'];
+        echo $str = parse_smileys($str, base_url() . 'smileys');
+        ?>
+        </p>
         <hr>
       <?php endforeach; ?>
     <?php else: ?>
