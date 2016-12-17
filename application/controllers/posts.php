@@ -31,7 +31,16 @@ class Posts extends CI_Controller{
     $cap = create_captcha($vals);
     $this->session->set_userdata('captcha', $cap['word']);
     $data['captcha'] = $cap['image'];
+
+    $this->load->helper('smiley');
+    $this->load->library('table');
+
+    $image_array = get_clickable_smileys(base_url() . '.smileys/', 'comment');
+    $col_array = $this->table->make_columns($image_array, 8);
+    $data['smiley_table'] = $this->table->generate($col_array);
+
     $this->load->helper('form');
+
     $this->load->view('post', $data);
   }
 
