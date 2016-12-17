@@ -34,11 +34,10 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `user_type` enum('admin','author','user','') NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-INSERT INTO ci.users (email, username, password, user_type) VALUES ('v.kamuz@gmail.com', 'vladimir', '12345', 'user');
-INSERT INTO ci.users (email, username, password, user_type) VALUES ('i.kamuz@gmail.com', 'igor', '12345', 'author');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+
+Register new users
 
 Create table comment and insert some data:
 
