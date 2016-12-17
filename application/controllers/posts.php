@@ -35,7 +35,7 @@ class Posts extends CI_Controller{
     $this->load->helper('smiley');
     $this->load->library('table');
 
-    $image_array = get_clickable_smileys(base_url() . '.smileys/', 'comment');
+    $image_array = get_clickable_smileys(base_url() . 'smileys/', 'comment');
     $col_array = $this->table->make_columns($image_array, 8);
     $data['smiley_table'] = $this->table->generate($col_array);
 

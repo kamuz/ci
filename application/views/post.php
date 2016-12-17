@@ -20,9 +20,20 @@
     <?php else: ?>
       <p>There are currently no comment.</p>
     <?php endif; ?>
+    <h3>Add new comment</h3>
+    <?php echo smiley_js() ?>
+    <?php echo $smiley_table ?>
     <?php echo form_open(base_url() . 'comments/add_comment/' . $post['post_id']); ?>
     <label for="message">Message:</label><br>
-    <textarea name="comment" id="message"></textarea><br>
+    <?php 
+    $data_form = array(
+      'name' => 'comment',
+      'id' => 'comment'
+    );
+
+    echo form_textarea($data_form);
+
+    ?>
     <p>Captcha code:<br><?php echo $captcha ?><br><input type="text" name="captcha"></p>
     <input type="submit" value="Add comment">
     <?php echo form_close(); ?>
