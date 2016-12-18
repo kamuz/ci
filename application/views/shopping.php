@@ -11,6 +11,8 @@
 
 <?php $i = 1; ?>
 
+<pre><?php print_r($this->cart->contents()) ?></pre>
+
 <?php foreach ($this->cart->contents() as $items): ?>
 
   <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
