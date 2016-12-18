@@ -13,8 +13,11 @@ class Calendar extends CI_Controller{
     if($month==false) {
       $month=date('m');
     }
+    $data = array(
+      3 => base_url() . 'posts/post/6',
+    );
     $this->load->library('calendar',$prefs);
-    echo $this->calendar->generate($year,$month);
+    echo $this->calendar->generate($year,$month,$data);
   }
 
 }
