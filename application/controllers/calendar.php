@@ -9,22 +9,22 @@ class Calendar extends CI_Controller{
     );
     $prefs['template'] = '
 
-       {table_open}<table border="0" cellpadding="0" cellspacing="0">{/table_open}
+       {table_open}<table border="0" cellpadding="0" cellspacing="0" width="600">{/table_open}
 
        {heading_row_start}<tr>{/heading_row_start}
 
-       {heading_previous_cell}<th><a href="{previous_url}">&lt;&lt;</a></th>{/heading_previous_cell}
-       {heading_title_cell}<th colspan="{colspan}">{heading}</th>{/heading_title_cell}
-       {heading_next_cell}<th><a href="{next_url}">&gt;&gt;</a></th>{/heading_next_cell}
+       {heading_previous_cell}<th height="25"><a href="{previous_url}">&lt;&lt;</a></th>{/heading_previous_cell}
+       {heading_title_cell}<th height="25" colspan="{colspan}">{heading}</th>{/heading_title_cell}
+       {heading_next_cell}<th height="25"><a href="{next_url}">&gt;&gt;</a></th>{/heading_next_cell}
 
        {heading_row_end}</tr>{/heading_row_end}
 
        {week_row_start}<tr>{/week_row_start}
-       {week_day_cell}<td>{week_day}</td>{/week_day_cell}
+       {week_day_cell}<td height="25">{week_day}</td>{/week_day_cell}
        {week_row_end}</tr>{/week_row_end}
 
        {cal_row_start}<tr>{/cal_row_start}
-       {cal_cell_start}<td>{/cal_cell_start}
+       {cal_cell_start}<td height="50">{/cal_cell_start}
 
        {cal_cell_content}<a href="{content}">{day}</a>{/cal_cell_content}
        {cal_cell_content_today}<div class="highlight"><a href="{content}">{day}</a></div>{/cal_cell_content_today}
