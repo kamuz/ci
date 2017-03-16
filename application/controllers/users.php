@@ -66,7 +66,7 @@ class Users extends CI_Controller{
       $username = $this->input->post('username', true);
       $password = $this->input->post('password', true);
       $user_type = $this->input->post('user_type', true);
-      $user = $this->user->login($username, sha1($password), $user_type);
+      $user = $this->user->login($username, sha1($password));
       if(!$user){
         $data['error'] = 1;
       }

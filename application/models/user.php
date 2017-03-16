@@ -6,13 +6,10 @@ class User extends CI_Model{
     $this->db->insert('users', $data);
   }
 
-  function login($username, $password, $user_type){
-    $where = array(
-      'username' => $username,
-      'password' => ($password),
-      'user_type' => $user_type
-    );
-    $this->db->select()->from('users')->where($where);
+  function login($username, $password){
+    $this->db->select()->from('users');
+    $this->db->where('username', $username);
+    $this->db->where('password', $password);
     $query = $this->db->get();
     return $query->first_row('array');
   }
